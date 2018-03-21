@@ -1,50 +1,28 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Каталог товаров</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-    <div class="header">
-        <div class="logo"><a href="/"></a></div>
-        <div class="menu">
-            <ul>
-                <li><a href="/">Главная</a></li>
-                <li><a href="/contacts/">Контакты</a></li>
-                <li><a href="/cataloge/">Каталог товаров</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="clr"></div>
-    <hr>
-    <div class="content">
-        <h1>Каталог</h1>
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    {% include 'mainapp/includes/inc_basket.html' %}
+    <h1>Каталог</h1>
+    {% if phones %}
+        <h3>Телефонов в наличии: {{ phones|length }}</h3>
+        {% for phone in phones %}
         <div class="phone-in-cataloge">
             <ul class="cataloge">
                 <li>
-                   <a href="cataloge/phone.html" class="catalog-phone">
-                        <img src="/static/img/iphone8.jpg" alt="iPhone 8 256" width="150px">
-                        <p>iPhone 8 256 Gb</p>
+                   <a href={{ phone.href }} class="catalog-phone">
+                        <img src="{% static phone.img_src %}" alt={{ phone.name }} width="150px">
+                        <p>{{ phone.name }}</p>
                     </a>
                 </li>
             </ul>
         </div>
-        <div class="phone-in-cataloge">
-            <ul class="cataloge">
-                <li>
-                   <a href="#" class="catalog-phone">
-                        <img src="https://boltyn.ru/upload/iblock/7bb/7bb007eb4775d52197763c6df759ca51.png" alt="iPhone 7 128" width="106px">
-                        <p>iPhone 7 128 Gb </p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="clr"></div>
-    <hr>
-    <div class="footer">
-        <p>Все права защищены &copy; 2018</p>
-    </div>
-</body>
-</html>
+        {% endfor %}
+    {% else %}
+        <h2>Список товаров пуст</h2>
+    {% endif %}
+{% endblock %}
