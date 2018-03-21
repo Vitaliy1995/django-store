@@ -1,0 +1,250 @@
+body {
+    background-color: #f8f8f8;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+hr {
+    background-color: cornflowerblue;
+    height: 3px;
+}
+
+input[type="text"],
+input[type="tel"] {
+    color: black;
+    font-size: 16px;
+    font-family: cursive;
+}
+
+.clr {
+    clear: both;
+}
+
+/*---------------------------------------*/
+
+.header{
+    width: auto;
+    height: 120px;
+    background-color: beige;
+}
+.logo {
+    width: 200px;
+    float: left;
+}
+
+    .logo a{
+        display: block;
+        height: 109px;
+        background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Apple_Computer_Logo_rainbow.svg/99px-Apple_Computer_Logo_rainbow.svg.png") no-repeat;
+    }
+
+.menu {
+    width: auto;
+    float: left;
+    padding-top: 40px;
+}
+
+    .menu,
+    .menu ul {
+        list-style-type: none;
+        font-family: cursive;
+
+    }
+    
+        .menu ul, .menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .menu a,
+        .menu a:active,
+        .menu a:visited {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        .menu a:hover {
+            color: blueviolet;
+        }
+
+.cataloge {
+    list-style: none;
+}
+
+.info {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #eaeaea;
+}
+
+.phone-image-div {
+    float: left;
+    margin: 21px 0 0 0;
+}
+
+.small-info {
+    overflow: hidden;
+    padding: 0 0 0 10px;
+    text-align: center;
+}
+
+.small-info p{
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+
+.button-buy input{
+    background-color: cornsilk;
+    width: 100px;
+    height: 40px;
+    margin: 70px 0 0 0;
+    font-size: 20px;
+}
+
+.button-buy input:hover {
+    background-color: blueviolet;
+    color: white;
+}
+
+.all-info {
+    clear: both;
+    padding: 20px 0 0 0;
+}
+
+.all-info p{
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.small-info p::first-letter,
+.all-info p::first-letter {
+    text-transform: uppercase;
+    font: 30px cursive;
+}
+
+.product-more {
+    color: #0E2021;
+    line-height: 24px;
+    list-style-image: url(/static/img/ic_assistant_24px.svg);
+}
+
+.catalog-phone{
+    width: 200px;
+    float: left;
+    list-style-type: none;
+    text-decoration: none;
+}
+    .catalog-phone p,
+    .catalog-phone:active p,
+    .catalog-phone:visited p {
+            color: cornflowerblue;
+        }
+    .catalog-phone:hover p{
+            color: blueviolet;
+        }
+
+.feedback {
+    width: 130px;
+    height: 20px;
+    margin: 7px 0px 10px 4px;
+}
+
+.phone-image-div {
+   outline: 3px solid grey;
+}
+    .phone-image-div:hover {
+        outline: inherit;
+    }
+
+.form_area {
+    width: 300px;
+}
+
+.form_area p label {
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.pform input[type="text"],
+.pform select,
+.pform input[type="email"] {
+    display: block;
+    float: right;
+    width: 230px;
+    margin-bottom: 5px;
+}
+
+.form_area input[type="text"]{
+    text-transform: capitalize;
+}
+
+
+.form_area input[type="email"]:focus{
+    color: darkblue;
+    background-color: bisque;
+}
+
+.htable {
+    width: 500px;
+    border: 1px solid black;
+    border-spacing: inherit;
+    margin: 0 auto;
+}
+
+    .htable caption {
+        font-size: 20px;
+    }
+
+    .htable td, th {
+        border: 1px solid black;
+        padding: 5px 5px 5px 5px;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+.footer {
+    height: 50px;
+    background-color: beige;
+    text-align: center;
+}
+.footer p {
+    color: darkblue;
+}
+
+@media screen and (max-width: 605px) {
+    .header{
+        height: 280px;
+    }
+    
+    .logo {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .logo a{
+        width: 99px;
+        display: block;
+        margin: 0 auto;
+    }
+    .menu {
+        clear: both;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .menu ul, .menu li {
+        display: block;
+        margin-bottom: 20px;
+    }
+    
+}
