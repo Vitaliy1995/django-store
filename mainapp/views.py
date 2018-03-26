@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import datetime
+from mainapp.models import ProductCategory, Product
 
 
 def main(request):
@@ -29,9 +30,10 @@ def cataloge(request):
             'name': 'iPhone 8 256 Gb',
         },
     ]
+    products = Product.objects.all()
     context = {
         'title': 'Каталог',
-        'phones': phones,
+        'phones': products,
     }
     return render(request, 'mainapp/cataloge.html', context)
 
