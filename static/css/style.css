@@ -1,4 +1,4 @@
-body {
+html, body {
     background-color: #f8f8f8;
 }
 
@@ -41,7 +41,7 @@ input[type="tel"] {
     }
 
 .menu {
-    width: auto;
+    /*width: auto;*/
     float: left;
     padding-top: 40px;
 }
@@ -67,6 +67,10 @@ input[type="tel"] {
 
         .menu a:hover {
             color: blueviolet;
+        }
+
+        li.auth {
+            padding-left: 100px;
         }
 
 .cataloge {

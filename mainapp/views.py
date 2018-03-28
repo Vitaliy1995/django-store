@@ -1,13 +1,10 @@
 from django.shortcuts import render
-import datetime
 from mainapp.models import ProductCategory, Product
 
 
 def main(request):
-    date = datetime.datetime.now()
     context = {
         'title': 'Главная',
-        'date': date.strftime("%d-%m-%Y %H:%M"),
     }
     return render(request, 'mainapp/index.html', context)
 

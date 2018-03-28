@@ -32,6 +32,7 @@ class Product(models.Model):
         default=0
     )
     quantity = models.PositiveIntegerField(
+
         verbose_name='Количество на складе',
         default=0
     )

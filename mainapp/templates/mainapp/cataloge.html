@@ -15,7 +15,7 @@
             <ul class="cataloge">
                 <li>
                    <a href="#" class="catalog-phone">
-                        <img src="{% static phone.img %}" alt={{ phone.name }} width="150px">
+                        <img src="/media/{{ phone.image|default:'products_images/apple.jpg' }}" alt={{ phone.name }} width="150px">
                         <p>{{ phone.name }}</p>
                     </a>
                 </li>
