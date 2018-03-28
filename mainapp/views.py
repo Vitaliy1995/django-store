@@ -1,5 +1,18 @@
 from django.shortcuts import render
 from mainapp.models import ProductCategory, Product
+import json
+import os
+
+
+JSON_PATH = 'mainapp/json'
+
+# with open(os.path.join(JSON_PATH, 'main_cataloge.json'), 'w') as outfile:
+#     json.dump(cataloge, outfile, ensure_ascii=False)
+
+
+def load_from_json(file_name):
+    with open(os.path.join(JSON_PATH, file_name + '.json'), 'r', encoding='utf-8') as infile:
+        return json.load(infile)
 
 
 def main(request):

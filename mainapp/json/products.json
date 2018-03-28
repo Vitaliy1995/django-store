@@ -1,0 +1,20 @@
+[
+  {
+    "category": "phone",
+    "name": "IPhone 6",
+    "image": "products_images/iphone6.jpg",
+    "short_desc": "IPhone 6",
+    "description": "Крутой айфон 6",
+    "price": "40000",
+    "quantity": "5"
+  },
+  {
+    "category": "phone",
+    "name": "IPhone X",
+    "image": "products_images/iphonex.jpg",
+    "short_desc": "IPhone X",
+    "description": "Крутой айфон 10",
+    "price": "80000",
+    "quantity": "2"
+  }
+]
