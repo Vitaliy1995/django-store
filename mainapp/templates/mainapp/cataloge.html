@@ -6,10 +6,12 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'mainapp/includes/inc_basket.html' %}
+    <div class="links-menu">
+        {% include 'mainapp/includes/inc_links_menu.html' %}
+    </div>
     <h1>Каталог</h1>
     {% if phones %}
-        <h3>Телефонов в наличии: {{ phones|length }}</h3>
+        <h3>Товаров в наличии: {{ phones|length }}</h3>
         {% for phone in phones %}
         <div class="phone-in-cataloge">
             <ul class="cataloge">

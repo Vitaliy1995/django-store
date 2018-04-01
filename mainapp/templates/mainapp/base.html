@@ -19,7 +19,11 @@
         <div class="menu">
             <ul>
                 <li><a href="{% url 'main' %}">Главная</a></li>
-                <li><a href="{% url 'cataloge:index' %}">Каталог товаров</a></li>
+                <li>
+                    <a href="{% url 'cataloge:index' %}">
+                        Каталог товаров
+                    </a>
+                </li>
                 <li><a href="{% url 'contacts' %}">Контакты</a></li>
                 {% if user.is_authenticated %}
                     <li>
@@ -27,6 +31,7 @@
                             {{ user.first_name|default:'Пользователь' }}
                         </a>
                     </li>
+                    {% include 'mainapp/includes/inc_basket.html' %}
                 {% endif %}
                 <li>
                     {% if user.is_authenticated %}

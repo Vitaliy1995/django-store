@@ -1,0 +1,10 @@
+<ul class="links-menu">
+    {% for link in links_menu %}
+        <li>
+            <a href="{% url 'cataloge:category' link.pk %}"
+               class="{% if request.resolver_match.args.0|add:0 == link.pk %}active{% endif %}">
+                {{ link.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

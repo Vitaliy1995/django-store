@@ -73,6 +73,10 @@ input[type="tel"] {
             padding-left: 100px;
         }
 
+.links-menu ul{
+    list-style: none;
+}
+
 .cataloge {
     list-style: none;
 }
@@ -154,6 +158,11 @@ input[type="tel"] {
     .catalog-phone:hover p{
             color: blueviolet;
         }
+
+.catalog-menu {
+    list-style-type: none;
+    text-decoration: none;
+}
 
 .feedback {
     width: 130px;

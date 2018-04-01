@@ -22,28 +22,29 @@ def main(request):
     return render(request, 'mainapp/index.html', context)
 
 
-def cataloge(request):
-    phones = [
-        {
-            'href': 'cataloge/phone.html',
-            'img_src': 'img/iphone8.jpg',
-            'name': 'iPhone 8 256 Gb',
-        },
-        {
-            'href': '#',
-            'img_src': 'img/iphone8.jpg',
-            'name': 'iPhone 8 256 Gb',
-        },
-        {
-            'href': '#',
-            'img_src': 'img/iphone8.jpg',
-            'name': 'iPhone 8 256 Gb',
-        },
-    ]
+def cataloge(request, pk=None):
+
+    links_menu = []
     products = Product.objects.all()
+    all_link = {
+        'pk': 0,
+        'name': 'All'
+    }
+    links_menu.append(all_link)
+    links_menu.extend(ProductCategory.objects.all())
+
+    if pk:
+        pk = int(pk)
+        if pk == 0:
+            pass
+        else:
+            products = Product.objects.filter(category__pk=pk)
+
+
     context = {
         'title': 'Каталог',
         'phones': products,
+        'links_menu': links_menu,
     }
     return render(request, 'mainapp/cataloge.html', context)
 
