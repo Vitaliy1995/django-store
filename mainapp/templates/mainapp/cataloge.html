@@ -16,8 +16,9 @@
         <div class="phone-in-cataloge">
             <ul class="cataloge">
                 <li>
-                   <a href="#" class="catalog-phone">
-                        <img src="/media/{{ phone.image|default:'products_images/apple.jpg' }}" alt={{ phone.name }} width="150px">
+                   <a href="{% url 'basket:add' phone.pk %}" class="catalog-phone">
+                        <img src="/media/{{ phone.image|default:'products_images/apple.jpg' }}"
+                             alt={{ phone.name }} width="150px">
                         <p>{{ phone.name }}</p>
                     </a>
                 </li>

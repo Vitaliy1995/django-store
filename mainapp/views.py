@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from mainapp.models import ProductCategory, Product
+from basketapp.models import Basket
 import json
 import os
 
@@ -15,15 +16,25 @@ def load_from_json(file_name):
         return json.load(infile)
 
 
+def get_basket(request):
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+    else:
+        basket = []
+    return basket
+
+
 def main(request):
+    basket = get_basket(request)
     context = {
         'title': 'Главная',
+        'basket': basket,
     }
     return render(request, 'mainapp/index.html', context)
 
 
 def cataloge(request, pk=None):
-
+    basket = get_basket(request)
     links_menu = []
     products = Product.objects.all()
     all_link = {
@@ -45,12 +56,15 @@ def cataloge(request, pk=None):
         'title': 'Каталог',
         'phones': products,
         'links_menu': links_menu,
+        'basket': basket,
     }
     return render(request, 'mainapp/cataloge.html', context)
 
 
 def contacts(request):
+    basket = get_basket(request)
     context = {
         'title': 'Контакты',
+        'basket': basket,
     }
     return render(request, 'mainapp/contacts.html', context)

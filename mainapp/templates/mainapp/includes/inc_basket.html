@@ -1,5 +1,8 @@
 <ul class="basket">
     <li>
-        <a href="#" class="basket">Корзина</a>
+        <a href="{% url 'basket:main' %}" class="basket">Корзина</a>
+    </li>
+    <li>
+        {% if basket %} {{ basket|length }} {% endif %}
     </li>
 </ul>

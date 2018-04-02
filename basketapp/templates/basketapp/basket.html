@@ -1,0 +1,25 @@
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{% now %Y %}</h1>
+    <h1>Корзина</h1>
+    {% for product in basket %}
+        <div class="phone-in-cataloge">
+            <ul class="cataloge">
+                <li>
+                    <a href="#" class="catalog-phone">
+                        <img src="/media/{{ product.product.image|default:'products_images/apple.jpg' }}"
+                             alt={{ product.product }} width="50px">
+                        <p>{{ product.product }}</p>
+                        <p>{{ product.quantity }}</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    {% endfor %}
+{% endblock %}
