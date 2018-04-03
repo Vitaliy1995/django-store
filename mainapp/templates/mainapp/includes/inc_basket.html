@@ -3,6 +3,8 @@
         <a href="{% url 'basket:main' %}" class="basket">Корзина</a>
     </li>
     <li>
-        {% if basket %} {{ basket|length }} {% endif %}
+        {% if basket %}
+            ({{ basket.0.total_quantity }} шт.)
+        {% endif %}
     </li>
 </ul>

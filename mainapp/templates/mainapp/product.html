@@ -1,0 +1,30 @@
+{% extends 'mainapp/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Купить {{ product.name }}</h1>
+    <div class="phone-image-div">
+        <a href="/media/{{ product.image }}" target="_blank">
+            <img src="/media/{{ product.image }}" alt="{{ product.name }}" width="250px">
+        </a>
+    </div>
+    <div class="small-info">
+        <h3 class="info">Краткое описание товара</h3>
+        <p>{{ product.short_desc }}</p>
+        <h3 class="info">Цена</h3>
+        <p>{{ product.price }} руб.</p>
+        <button class="button-buy">
+            <a href="{% url 'basket:add' product.pk %}">
+                Купить
+            </a>
+        </button>
+    </div>
+    <div class="all-info">
+        <h3 class="info">Подробное описание товара</h3>
+        <p>{{ product.description }}</p>
+    </div>
+{% endblock %}

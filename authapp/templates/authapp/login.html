@@ -9,6 +9,9 @@
     <form class="form-signin" action="{% url 'auth:login' %}" method="post">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
         {{ login_form.as_p }}
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>

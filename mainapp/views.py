@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from mainapp.models import ProductCategory, Product
 from basketapp.models import Basket
 import json
 import os
+import random
 
 
 JSON_PATH = 'mainapp/json'
@@ -24,6 +25,22 @@ def get_basket(request):
     return basket
 
 
+def get_hot_product():
+    products = Product.objects.all()
+    return random.sample(list(products), 1)[0]
+
+
+def get_links_menu():
+    links_menu = []
+    all_link = {
+        'pk': 0,
+        'name': 'All'
+    }
+    links_menu.append(all_link)
+    links_menu.extend(ProductCategory.objects.all())
+    return links_menu
+
+
 def main(request):
     basket = get_basket(request)
     context = {
@@ -35,14 +52,9 @@ def main(request):
 
 def cataloge(request, pk=None):
     basket = get_basket(request)
-    links_menu = []
     products = Product.objects.all()
-    all_link = {
-        'pk': 0,
-        'name': 'All'
-    }
-    links_menu.append(all_link)
-    links_menu.extend(ProductCategory.objects.all())
+    links_menu = get_links_menu()
+    hot_product = get_hot_product()
 
     if pk:
         pk = int(pk)
@@ -57,8 +69,20 @@ def cataloge(request, pk=None):
         'phones': products,
         'links_menu': links_menu,
         'basket': basket,
+        'hot_product': hot_product,
     }
     return render(request, 'mainapp/cataloge.html', context)
+
+
+def product(request, pk):
+
+    context = {
+        'title': 'Продукты',
+        'links_menu': get_links_menu(),
+        'product': get_object_or_404(Product, pk=pk),
+        'basket': get_basket(request),
+    }
+    return render(request, 'mainapp/product.html', context)
 
 
 def contacts(request):

@@ -22,5 +22,6 @@ app_name = 'basketapp'
 urlpatterns = [
     re_path(r'^$', basketapp.main, name='main'),
     re_path(r'^add/(\d+)/$', basketapp.add, name='add'),
+    re_path(r'^del/(\d+)/$', basketapp.product_del, name='del'),
 ]
 
