@@ -1,8 +1,8 @@
-<ul class="links-menu">
+<ul class="nav justify-content-center">
     {% for link in links_menu %}
-        <li>
+        <li class="nav-item">
             <a href="{% url 'cataloge:category' link.pk %}"
-               class="{% if request.resolver_match.args.0|add:0 == link.pk %}active{% endif %}">
+               class="{% if request.resolver_match.args.0|add:0 == link.pk %}active{% endif %} nav-link">
                 {{ link.name }}
             </a>
         </li>
