@@ -1,3 +1,5 @@
 # Исключить директорию venv
 venv/
 */migrations
+
+readme.txt
