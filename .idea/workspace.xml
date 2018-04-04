@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79655a4c-f346-4d94-86f8-366ab127c7d9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/basketapp/templates/basketapp/basket.html" beforeDir="false" afterPath="$PROJECT_DIR$/basketapp/templates/basketapp/basket.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketapp/templates/basketapp/includes/inc_basket_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/basketapp/templates/basketapp/includes/inc_basket_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/basketapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/basketapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/cataloge.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/cataloge.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/product.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,8 +41,8 @@
       <file leaf-file-name="basket.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/basketapp/templates/basketapp/basket.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+            <state relative-caret-position="126">
+              <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -698,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/basketapp/templates/basketapp/basket.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        <state relative-caret-position="126">
+          <caret line="7" column="14" lean-forward="true" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
