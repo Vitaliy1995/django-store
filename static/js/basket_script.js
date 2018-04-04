@@ -1,7 +1,8 @@
 "use strict";
 
 window.onload = function () {
-    $('.phone-in-cataloge input[type="number"]').on('click', function() {
+    $('.phone-in-cataloge').on('click', 'input[type="number"]', function() {
+        console.log('I am here');
         let t_href = event.target;
         const URL = "/basket/edit/" + t_href.name + "/" + t_href.value + "/";
 

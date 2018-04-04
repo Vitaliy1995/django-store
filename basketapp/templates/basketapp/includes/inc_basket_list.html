@@ -1,5 +1,5 @@
 {% for product in basket %}
-    <div class="phone-in-cataloge">
+    <div class="basket">
         <ul class="cataloge catalog-phone">
             <li>
                     <img src="/media/{{ product.product.image|default:'products_images/apple.jpg' }}"
@@ -17,9 +17,9 @@
         </ul>
     </div>
 {% endfor %}
+<div class="clr"></div>
 {% if basket %}
-    <div class="clr"></div>
-    <div>
+    <div class="basket_summary">
         <p>В корзине {{ basket.0.total_quantity }} товаров</p>
         <p>Общая стоимость: {{ basket.0.total_cost|floatformat:0 }} руб.</p>
     </div>
