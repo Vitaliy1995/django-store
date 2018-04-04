@@ -17,8 +17,10 @@
         <p>{{ product.short_desc }}</p>
         <h3 class="info">Цена</h3>
         <p>{{ product.price }} руб.</p>
+        <p>В наличии: {{ product.quantity }}</p>
         <button class="button-buy">
-            <a href="{% url 'basket:add' product.pk %}">
+            <a href="{% url 'basket:add' product.pk %}"
+               {% if product.quantity == 0 %} style="pointer-events: none;color: grey;" {% endif %}>
                 Купить
             </a>
         </button>

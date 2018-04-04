@@ -13,32 +13,11 @@
 {% block content %}
     <h1>{% now %Y %}</h1>
     <h1>Корзина</h1>
-    <div class="phone-in-cataloge">
-        {% for product in basket %}
-            <div class="basket">
-                <ul class="cataloge catalog-phone">
-                    <li>
-                            <img src="/media/{{ product.product.image|default:'products_images/apple.jpg' }}"
-                                 alt={{ product.product }} width="50px">
-                            <p>{{ product.product }}</p>
-                            <input type="number" name="{{ product.pk }}" min="0"
-                                   value="{{ product.quantity }}" style="width: 50px;">
-                            <p>Цена за 1 ед. товара: {{ product.product.price }}</p>
-                            <button>
-                                <a href="{% url 'basket:del' product.pk %}">
-                                    Delete
-                                </a>
-                            </button>
-                    </li>
-                </ul>
-            </div>
-        {% endfor %}
-        <div class="clr"></div>
-        {% if basket %}
-            <div class="basket_summary">
-                <p>В корзине {{ basket.0.total_quantity }} товаров</p>
-                <p>Общая стоимость: {{ basket.0.total_cost|floatformat:0 }} руб.</p>
-            </div>
-        {% endif %}
-    </div>
+    {% if basket %}
+        <div class="phone-in-cataloge">
+            {% include 'basketapp/includes/inc_basket_list.html' %}
+        </div>
+    {% else %}
+        <h1>Вы пока ничего не добавили</h1>
+    {% endif %}
 {% endblock %}

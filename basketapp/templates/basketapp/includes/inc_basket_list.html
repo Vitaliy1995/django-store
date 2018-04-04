@@ -1,26 +1,54 @@
-{% for product in basket %}
-    <div class="basket">
-        <ul class="cataloge catalog-phone">
-            <li>
-                    <img src="/media/{{ product.product.image|default:'products_images/apple.jpg' }}"
-                         alt={{ product.product }} width="50px">
-                    <p>{{ product.product }}</p>
-                    <input type="number" name="{{ product.pk }}" min="0"
-                           value="{{ product.quantity }}" style="width: 50px;">
-                    <p>Цена за 1 ед. товара: {{ product.product.price }}</p>
-                    <button>
-                        <a href="{% url 'basket:del' product.pk %}">
-                            Delete
-                        </a>
-                    </button>
-            </li>
-        </ul>
-    </div>
-{% endfor %}
-<div class="clr"></div>
-{% if basket %}
-    <div class="basket_summary">
-        <p>В корзине {{ basket.0.total_quantity }} товаров</p>
-        <p>Общая стоимость: {{ basket.0.total_cost|floatformat:0 }} руб.</p>
-    </div>
-{% endif %}
+<form method="post" action="{% url 'basket:buy' %}">
+    {% csrf_token %}
+    {% for product in basket %}
+        <div class="basket">
+            <table style="margin: 0 auto;text-align: center;">
+                <tr>
+                    <th>№</th>
+                    <th>Товар</th>
+                    <th>Кол-во</th>
+                    <th>Цена за 1 ед. товара</th>
+                    <th>Доступно товаров</th>
+                    <th>Удалить</th>
+                </tr>
+                <tr>
+                    <td>{{ product.pk }}</td>
+                    <td>
+                        <img src="/media/{{ product.product.image|default:'products_images/apple.jpg' }}"
+                            alt={{ product.product }} width="50px">
+                        <p>{{ product.product }}</p>
+                    </td>
+                    <td>
+                        <input type="number" name="{{ product.product.name }}" min="0"
+                               max="{{ product.product.quantity }}"
+                                value="{{ product.quantity }}" style="width: 70px;">
+                    </td>
+                    <td>{{ product.product.price }}</td>
+                    <td>{{ product.product.quantity }}</td>
+                    <td>
+                        <button>
+                            <a href="{% url 'basket:del' product.pk %}">
+                                Delete
+                            </a>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {% endfor %}
+    <div class="clr"></div>
+    {% if basket %}
+        <div class="basket_summary">
+            <p style="text-align: center;">В корзине {{ basket.0.total_quantity }} товаров</p>
+            <p style="text-align: center;">Общая стоимость: {{ basket.0.total_cost|floatformat:0 }} руб.</p>
+        </div>
+        <div class="buy">
+            <button class="btn btn-lg btn-primary btn-block" style="margin: 0 auto;" type="submit">
+                <!--<a href="{#% url 'basket:buy' %#}">-->
+                    <!--Оплатить-->
+                <!--</a>-->
+                Buy
+            </button>
+        </div>
+    {% endif %}
+</form>

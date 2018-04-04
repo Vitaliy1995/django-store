@@ -66,3 +66,26 @@ def basket_edit(request, pk, quantity):
         result = render_to_string('basketapp/includes/inc_basket_list.html', context)
 
         return JsonResponse({'result': result})
+
+
+@login_required
+def basket_buy(request):
+    if request.method == 'POST':
+
+        products = request.POST.keys()
+        products_list = list(Product.objects.all())
+        names = []
+        for i in range(len(products_list)):
+            names.append(products_list[i].name)
+        print(names)
+        for product in products:
+            if product in names:
+                print(product)
+                new_item = Product.objects.filter(name=product).first()
+                new_item.quantity -= int(request.POST[product])
+                new_item.save()
+
+        basket = Basket.objects.all()
+        basket.delete()
+        return HttpResponseRedirect(reverse('main'))
+

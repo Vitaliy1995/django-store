@@ -18,21 +18,39 @@
                     <a href="{% url 'cataloge:product' hot_product.pk %}">
                         <img src="/media/{{ hot_product.image|default:'products_images/apple.jpg' }}"
                              alt={{ hot_product.name }} width="150px">
-                        <p>{{ hot_product.name }}</p>
                     </a>
+                </li>
+                <li>
+                    <p>{{ hot_product.name }}</p>
+                </li>
+                <li>
+                    {% if hot_product.quantity > 0 %}
+                        <p>Товаров в наличии: {{ hot_product.quantity }}</p>
+                    {% else %}
+                        <p>Нет товара в наличии</p>
+                    {% endif %}
                 </li>
             </ul>
         </div>
         <h3>Товаров в наличии: {{ phones|length }}</h3>
         {% for phone in phones %}
-        <div class="phone-in-cataloge">
+        <div style="float: left;">
             <ul class="cataloge">
                 <li>
                    <a href="{% url 'cataloge:product' phone.pk %}" class="catalog-phone">
                         <img src="/media/{{ phone.image|default:'products_images/apple.jpg' }}"
                              alt={{ phone.name }} width="150px">
-                        <p>{{ phone.name }}</p>
                     </a>
+                </li>
+                <li>
+                    <p>{{ phone.name }}</p>
+                </li>
+                <li>
+                    {% if phone.quantity > 0 %}
+                        <p>Товаров в наличии: {{ phone.quantity }}</p>
+                    {% else %}
+                        <p>Нет товара в наличии</p>
+                    {% endif %}
                 </li>
             </ul>
         </div>
