@@ -2,17 +2,20 @@
 {% load staticfiles %}
 
 {% block content %}
-    <form class="form-horizontal" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ edit_form.as_p }}
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
-    </form>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">
-        <a href="{% url 'main' %}">
-            Главная
-        </a>
-    </button>
-    <div class="user_avatar">
-        <img src="/media/{{ user.avatar }}" alt="">
+    <div class="user_avatar" style="float: left;margin-right: 10px;">
+        <img src="/media/{{ user.avatar }}" alt="Фото" width="200px">
+        <p style="text-align: center;">{{ user.first_name }}</p>
+    </div>
+    <div class="forma" style="float: left;">
+        <form class="form-horizontal" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ edit_form.as_p }}
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+        </form>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 5px;">
+            <a href="{% url 'main' %}" style="color: white;">
+                Главная
+            </a>
+        </button>
     </div>
 {% endblock %}

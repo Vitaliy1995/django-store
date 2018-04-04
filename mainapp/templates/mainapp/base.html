@@ -32,6 +32,9 @@
                             {{ user.first_name|default:'Пользователь' }}
                         </a>
                     </li>
+                    <li>
+                        <img src="/media/{{ user.avatar }}" alt="" width="30px">
+                    </li>
                     {% include 'mainapp/includes/inc_basket.html' %}
                 {% endif %}
                 <li>
