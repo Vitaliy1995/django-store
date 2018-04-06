@@ -37,7 +37,7 @@ def get_links_menu():
         'name': 'All'
     }
     links_menu.append(all_link)
-    links_menu.extend(ProductCategory.objects.all())
+    links_menu.extend(ProductCategory.objects.filter(active=True))
     return links_menu
 
 
@@ -59,7 +59,7 @@ def cataloge(request, pk=None):
     if pk:
         pk = int(pk)
         if pk == 0:
-            pass
+            products = Product.objects.filter(cataloge__active=True)
         else:
             products = Product.objects.filter(category__pk=pk)
 

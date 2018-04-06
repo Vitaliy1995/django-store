@@ -1,0 +1,49 @@
+{% extends 'adminapp/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="links-menu">
+        {% include 'adminapp/includes/inc_admin_menu.html' %}
+    </div>
+    <div class="categories_list">
+        {% for category in categories %}
+        <ul style="list-style-type: none; border: 1px solid black; width: 500px;">
+            <li>
+                {{ category.name }}
+            </li>
+            <li>
+                {{ category.description }}
+            </li>
+            <li>
+                <button>
+                    <a href="{% url 'admin:category_update' category.pk %}">
+                        Редактировать
+                    </a>
+                </button>
+                {% if category.active %}
+                    <button>
+                        <a href="{% url 'admin:category_delete' category.pk %}">
+                            Удалить
+                        </a>
+                    </button>
+                {% else %}
+                    <button>
+                        <a href="{% url 'admin:category_up' category.pk %}">
+                            Восстановить
+                        </a>
+                    </button>
+                {% endif %}
+            </li>
+        </ul>
+        {% endfor %}
+        <button class="new_category" style="width: 300px;">
+            <a href="{% url 'admin:category_create' %}">
+                Добавить категорию
+            </a>
+        </button>
+    </div>
+{% endblock %}
