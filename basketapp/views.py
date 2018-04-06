@@ -70,22 +70,17 @@ def basket_edit(request, pk, quantity):
 
 @login_required
 def basket_buy(request):
-    if request.method == 'POST':
+    products = request.POST.keys()
+    ids = list(Product.objects.all().values_list('id', flat=True))
+    for product in list(products)[1:]:
+        basket_item = Basket.objects.filter(pk=int(product)).first()
+        new_id = basket_item.product.id
+        if new_id in ids:
+            new_item = Product.objects.filter(id=new_id).first()
+            new_item.quantity -= int(request.POST[product])
+            new_item.save()
 
-        products = request.POST.keys()
-        products_list = list(Product.objects.all())
-        names = []
-        for i in range(len(products_list)):
-            names.append(products_list[i].name)
-        print(names)
-        for product in products:
-            if product in names:
-                print(product)
-                new_item = Product.objects.filter(name=product).first()
-                new_item.quantity -= int(request.POST[product])
-                new_item.save()
-
-        basket = Basket.objects.all()
-        basket.delete()
-        return HttpResponseRedirect(reverse('main'))
+    basket = Basket.objects.all()
+    basket.delete()
+    return HttpResponseRedirect(reverse('main'))
 
