@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>
+    {% block title %}
+    {% endblock %}
+    </title>
+    {% block css %}
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
+        <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+</head>
+<body>
+    <div class="header">
+        <div class="logo"><a href="{% url 'main' %}"></a></div>
+        <div class="menu">
+
+        </div>
+    </div>
+    <div class="clr"></div>
+    <hr>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="clr"></div>
+    <hr>
+    <div class="footer">
+        <p>Все права защищены &copy; 2018</p>
+    </div>
+</body>
+</html>

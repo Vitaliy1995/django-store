@@ -1,0 +1,54 @@
+{% extends 'adminapp/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="links-menu">
+        {% include 'adminapp/includes/inc_admin_menu.html' %}
+    </div>
+    <div class="users_list">
+        {% for user in users %}
+        <ul style="list-style-type: none; border: 1px solid black; width: 500px; {% if not user.is_active %}background-color: grey;{% endif %}">
+            <li>
+                <img src="/media/{{ user.avatar|default:'products_images/apple.jpg' }}"
+                 alt="{{ user.username }}" width="200px">
+            </li>
+            <li>
+                {% if user.is_superuser %}Администратор{% else %}Пользователь{% endif %}
+                {{ user.username }}
+            </li>
+            <li>Последний раз заходил: {{ user.last_login }}</li>
+            <li>
+                <button>
+                    <a href="{% url 'admin:user_update' user.pk %}">
+                        Редактировать
+                    </a>
+                </button>
+                {% if user.username != 'django' and not user.is_superuser %}
+                    {% if user.is_active %}
+                        <button>
+                            <a href="{% url 'admin:user_delete' user.pk %}">
+                                Удалить
+                            </a>
+                        </button>
+                    {% else %}
+                        <button>
+                            <a href="{% url 'admin:user_up' user.pk %}">
+                                Восстановить
+                            </a>
+                        </button>
+                    {% endif %}
+                {% endif %}
+            </li>
+        </ul>
+        {% endfor %}
+        <button class="new_user" style="width: 300px;">
+            <a href="{% url 'admin:user_create' %}">
+                Добавить пользователя
+            </a>
+        </button>
+    </div>
+{% endblock %}

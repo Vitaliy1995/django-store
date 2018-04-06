@@ -28,13 +28,18 @@
                 <li><a href="{% url 'contacts' %}">Контакты</a></li>
                 {% if user.is_authenticated %}
                     <li>
+                        <img src="/media/{{ user.avatar }}" alt="" width="30px">
+                    </li>
+                    <li>
                         <a href="{% url 'auth:edit' %}">
                             {{ user.first_name|default:'Пользователь' }}
                         </a>
                     </li>
-                    <li>
-                        <img src="/media/{{ user.avatar }}" alt="" width="30px">
-                    </li>
+                    {% if user.is_superuser %}
+                        <li>
+                            <a href="{% url 'admin:users' %}">Админка</a>
+                        </li>
+                    {% endif %}
                     {% include 'mainapp/includes/inc_basket.html' %}
                 {% endif %}
                 <li>
